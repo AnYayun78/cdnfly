@@ -84,7 +84,7 @@ check_sys(){
 install_depend() {
     if check_sys sysRelease ubuntu;then
         apt-get update
-        apt-get -y install wget python-minimal
+        apt-get -y install wget python2-minimal
     elif check_sys sysRelease centos;then
         yum install -y wget python
     fi    
@@ -136,7 +136,8 @@ download(){
 }
 
 sync_time(){
-    echo "start to sync time and add sync command to cronjob..."
+    echo "开始同步系统时间，并添加同步时间的命令至计划任务..."
+##    echo "start to sync time and add sync command to cronjob..."
 
     if check_sys sysRelease ubuntu || check_sys sysRelease debian;then
         apt-get -y update
@@ -219,7 +220,7 @@ else
 fi
 
 cd /opt/
-download "https://github.com/LoveesYe/cdnflydadao/raw/main/master/$tar_gz_name" "https://github.com/LoveesYe/cdnflydadao/raw/main/master/$tar_gz_name" "$tar_gz_name"
+download "https://github.com/SkyAerope/cdnfly/raw/main/master/$tar_gz_name" "https://github.com/SkyAerope/cdnfly/raw/main/master/$tar_gz_name" "$tar_gz_name"
 
 tar xf $tar_gz_name
 rm -rf cdnfly
